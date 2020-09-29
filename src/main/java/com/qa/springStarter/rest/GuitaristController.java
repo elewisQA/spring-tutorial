@@ -1,4 +1,4 @@
-package rest;
+package com.qa.springStarter.rest;
 
 import java.util.List;
 

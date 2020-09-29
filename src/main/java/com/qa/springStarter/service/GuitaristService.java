@@ -47,7 +47,7 @@ public class GuitaristService {
 	}
 	
 	// Read by ID
-	public GuitaristDTO read(long id) {
+	public GuitaristDTO read(Long id) {
 		return this.mapToDTO(this.repo.findById(id).orElseThrow(GuitaristNotFoundException::new));
 	}
 	
@@ -60,7 +60,7 @@ public class GuitaristService {
 	}
 	
 	// Delete
-	public boolean delete(long id) {
+	public boolean delete(Long id) {
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id); // Delete, then confirm (NOT) if exists
 	}
