@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -33,5 +36,11 @@ public class Band {
 	private String name;
 	
 	@OneToMany(targetEntity = Guitarist.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Guitarist> guitarists = new ArrayList<>();
+	
+	public Band(String name) {
+		super();
+		this.name = name;
+	}
 }
