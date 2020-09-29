@@ -19,4 +19,5 @@ public class GuitaristDTO {
 	private String name;
 	private int noOfStrings;
 	private String type;
+
 }

@@ -1,6 +1,5 @@
 package com.qa.springStarter.persistence.domain;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,9 +28,9 @@ public class Guitarist {
 	
 	@Id
 	@GeneratedValue // This does auto-increment for us
-	private long id;
+	private Long id;
 
-	@Column(name="type")
+	@Column
 	@Size(min = 1, max = 100)
 	private String type;
 	
@@ -41,20 +40,18 @@ public class Guitarist {
 	private String name;
 	
 	@Column(name="string_count")
-	@Min(3)
-	@Max(12)
 	private int noOfStrings;
 
 	@ManyToOne(targetEntity = Band.class)
 	private Band band;
 	
-	public Guitarist(long id, @Size(min = 1, max = 100) String type, @NotNull @Size(min = 1, max = 100) String name,
+	public Guitarist(Long id, @Size(min = 1, max = 100) String type, @NotNull @Size(min = 1, max = 100) String name,
 			@Min(3) @Max(12) int noOfStrings) {
 		super();
+		System.out.println("GUITARIST - Full Arg Constructor");
 		this.id = id;
 		this.type = type;
 		this.name = name;
 		this.noOfStrings = noOfStrings;
 	}
-
 }

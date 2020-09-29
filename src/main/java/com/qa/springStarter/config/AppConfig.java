@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-@Profile({"dev", "prod"})
 public class AppConfig {
 
 	@Bean

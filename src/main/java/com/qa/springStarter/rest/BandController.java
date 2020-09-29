@@ -37,7 +37,7 @@ public class BandController {
 	}
 	
 	// readAll
-	@PostMapping("/read")
+	@GetMapping("/readAll")
 	public ResponseEntity<List<BandDTO>> getAll() {
 		return ResponseEntity.ok(this.service.readAll());
 	}

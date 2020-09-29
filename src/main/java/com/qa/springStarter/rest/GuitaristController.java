@@ -17,14 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.springStarter.dto.GuitaristDTO;
 import com.qa.springStarter.service.GuitaristService;
 
+// http://localhost:9999/guitarist
+
 @RestController
 @RequestMapping("/guitarist")
 public class GuitaristController {
 	
-	// Re
-	// S
-	// T
-
 	private GuitaristService service;
 	
 	@Autowired
@@ -34,7 +32,6 @@ public class GuitaristController {
 		this.service = service;
 	}
 	
-	
 	// create
 	@PostMapping("/create") // ResponseEntity is specifically in JSON format 
 	public ResponseEntity<GuitaristDTO> create(@RequestBody GuitaristDTO guitarist) {
@@ -43,9 +40,10 @@ public class GuitaristController {
 	}
 	
 	// readAll
-	@GetMapping("/read") 
+	@GetMapping("/readAll") 
 	public ResponseEntity<List<GuitaristDTO>> getAll() {
-		return ResponseEntity.ok(this.service.readAll());
+		ResponseEntity<List<GuitaristDTO>> re = ResponseEntity.ok(this.service.readAll());
+		return re;
 	}
 	
 	// read
