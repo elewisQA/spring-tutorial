@@ -54,7 +54,7 @@ public class BandService {
 	// Update
 	public BandDTO update(BandDTO bandDTO, Long id) {
 		Band toUpdate = this.repo.findById(id).orElseThrow(BandNotFoundException::new);
-		StarterBeanUtils.mergeObject(bandDTO, toUpdate);
+		toUpdate.setName(bandDTO.getBandName());
 		return this.mapToDTO(this.repo.save(toUpdate));
 	}
 	
