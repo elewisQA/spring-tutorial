@@ -33,7 +33,8 @@ public class Band {
 	@Column(name = "band_name", unique = true)
 	private String name;
 	
-	@OneToMany(targetEntity = Guitarist.class, cascade = CascadeType.ALL)
+	//@OneToMany(targetEntity = Guitarist.class, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "band")
 	private List<Guitarist> guitarists = new ArrayList<>();
 
 	public Band(long id, String name) {

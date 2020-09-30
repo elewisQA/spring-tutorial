@@ -11,7 +11,6 @@ import com.qa.springStarter.dto.GuitaristDTO;
 import com.qa.springStarter.exception.GuitaristNotFoundException;
 import com.qa.springStarter.persistence.domain.Guitarist;
 import com.qa.springStarter.persistence.repository.GuitaristRepository;
-import com.qa.springStarter.utils.StarterBeanUtils;
 
 @Service
 public class GuitaristService {

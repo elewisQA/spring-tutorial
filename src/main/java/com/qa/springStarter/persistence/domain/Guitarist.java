@@ -42,16 +42,9 @@ public class Guitarist {
 	@Column(name="string_count")
 	private int noOfStrings;
 
-	@ManyToOne(targetEntity = Band.class)
+	//@ManyToOne(targetEntity = Band.class)
+	@ManyToOne
 	private Band band;
 	
-	public Guitarist(Long id, @Size(min = 1, max = 100) String type, @NotNull @Size(min = 1, max = 100) String name,
-			@Min(3) @Max(12) int noOfStrings) {
-		super();
-		System.out.println("GUITARIST - Full Arg Constructor");
-		this.id = id;
-		this.type = type;
-		this.name = name;
-		this.noOfStrings = noOfStrings;
-	}
+	// ctrl + alt + s --> constructor with fields
 }

@@ -11,7 +11,6 @@ import com.qa.springStarter.dto.BandDTO;
 import com.qa.springStarter.exception.BandNotFoundException;
 import com.qa.springStarter.persistence.domain.Band;
 import com.qa.springStarter.persistence.repository.BandRepository;
-import com.qa.springStarter.utils.StarterBeanUtils;
 
 @Service
 public class BandService {

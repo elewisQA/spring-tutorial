@@ -1,5 +1,7 @@
 package com.qa.springStarter.dto;
 
+import com.qa.springStarter.persistence.domain.Band;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,5 +21,5 @@ public class GuitaristDTO {
 	private String name;
 	private int noOfStrings;
 	private String type;
-
+	
 }

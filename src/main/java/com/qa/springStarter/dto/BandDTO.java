@@ -1,5 +1,7 @@
 package com.qa.springStarter.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,4 +19,5 @@ public class BandDTO {
 	
 	private long id;
 	private String bandName;
+	private List<GuitaristDTO> guitarists;
 }
