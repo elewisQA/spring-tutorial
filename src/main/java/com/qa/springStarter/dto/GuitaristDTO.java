@@ -17,7 +17,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class GuitaristDTO {
 
-	private long id;
+	private Long id;
 	private String name;
 	private int noOfStrings;
 	private String type;

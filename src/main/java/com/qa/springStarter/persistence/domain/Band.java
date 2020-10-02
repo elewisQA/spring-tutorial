@@ -37,9 +37,7 @@ public class Band {
 	@OneToMany(mappedBy = "band")
 	private List<Guitarist> guitarists = new ArrayList<>();
 
-	public Band(long id, String name) {
-		super();
-		this.id = id;
+	public Band(String name) {
 		this.name = name;
 		this.guitarists = new ArrayList<>();
 	}

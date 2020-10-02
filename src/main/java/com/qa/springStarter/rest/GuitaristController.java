@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.springStarter.dto.GuitaristDTO;
+import com.qa.springStarter.persistence.domain.Guitarist;
 import com.qa.springStarter.service.GuitaristService;
 
 // http://localhost:9999/guitarist
 
 @RestController
+@CrossOrigin
 @RequestMapping("/guitarist")
 public class GuitaristController {
 	
@@ -34,7 +37,7 @@ public class GuitaristController {
 	
 	// create
 	@PostMapping("/create") // ResponseEntity is specifically in JSON format 
-	public ResponseEntity<GuitaristDTO> create(@RequestBody GuitaristDTO guitarist) {
+	public ResponseEntity<GuitaristDTO> create(@RequestBody Guitarist guitarist) {
 		GuitaristDTO created = this.service.create(guitarist);
 		return new ResponseEntity<>(created, HttpStatus.CREATED);
 	}
@@ -54,7 +57,7 @@ public class GuitaristController {
 	
 	// update
 	@PutMapping("/update/{id}")
-	public ResponseEntity<GuitaristDTO> update(@PathVariable Long id, @RequestBody GuitaristDTO guitarist) {
+	public ResponseEntity<GuitaristDTO> update(@PathVariable Long id, @RequestBody Guitarist guitarist) {
 		GuitaristDTO updated = this.service.update(guitarist, id);
 		return new ResponseEntity<>(updated, HttpStatus.ACCEPTED);
 	}

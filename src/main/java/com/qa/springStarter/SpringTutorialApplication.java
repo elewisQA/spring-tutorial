@@ -2,11 +2,11 @@ package com.qa.springStarter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @SpringBootApplication
-@EnableSwagger2
+@EnableWebMvc
 public class SpringTutorialApplication {
 
 	public static void main(String[] args) {

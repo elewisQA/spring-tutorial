@@ -34,9 +34,9 @@ public class BandService {
 	}
 	
 	// Create
-	public BandDTO create(BandDTO bandDTO) {
-		Band toSave = this.mapFromDTO(bandDTO);
-		Band saved = this.repo.save(toSave);
+	public BandDTO create(Band band) {
+		//Band toSave = this.mapFromDTO(bandDTO);
+		Band saved = this.repo.save(band);
 		return this.mapToDTO(saved);
 	}
 	
@@ -51,9 +51,10 @@ public class BandService {
 	}
 	
 	// Update
-	public BandDTO update(BandDTO bandDTO, Long id) {
+	public BandDTO update(Band band, Long id) {
 		Band toUpdate = this.repo.findById(id).orElseThrow(BandNotFoundException::new);
-		toUpdate.setName(bandDTO.getBandName());
+		toUpdate.setName(band.getName());
+		toUpdate.setGuitarists(band.getGuitarists());
 		return this.mapToDTO(this.repo.save(toUpdate));
 	}
 	

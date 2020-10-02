@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.springStarter.dto.BandDTO;
+import com.qa.springStarter.persistence.domain.Band;
 import com.qa.springStarter.service.BandService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/band")
 public class BandController {
 
@@ -31,7 +34,7 @@ public class BandController {
 	
 	// Create
 	@PostMapping("/create")
-	public ResponseEntity<BandDTO> create(@RequestBody BandDTO band) {
+	public ResponseEntity<BandDTO> create(@RequestBody Band band) {
 		BandDTO created = this.service.create(band);
 		return new ResponseEntity<>(created, HttpStatus.CREATED);
 	}
@@ -50,7 +53,7 @@ public class BandController {
 	
 	// update
 	@PutMapping("/update/{id}")
-	public ResponseEntity<BandDTO> update(@PathVariable Long id, @RequestBody BandDTO band) {
+	public ResponseEntity<BandDTO> update(@PathVariable Long id, @RequestBody Band band) {
 		BandDTO updated = this.service.update(band, id);
 		return new ResponseEntity<>(updated, HttpStatus.ACCEPTED);
 	}

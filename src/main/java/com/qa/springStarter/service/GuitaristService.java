@@ -12,6 +12,7 @@ import com.qa.springStarter.exception.GuitaristNotFoundException;
 import com.qa.springStarter.persistence.domain.Guitarist;
 import com.qa.springStarter.persistence.repository.GuitaristRepository;
 
+
 @Service
 public class GuitaristService {
 	
@@ -34,9 +35,9 @@ public class GuitaristService {
 	}
 	
 	// Create
-	public GuitaristDTO create(GuitaristDTO guitaristDTO) {
-		Guitarist toSave = this.mapFromDTO(guitaristDTO);
-		Guitarist saved = this.repo.save(toSave);
+	public GuitaristDTO create(Guitarist guitarist) {
+		//Guitarist toSave = this.mapFromDTO(guitaristDTO);
+		Guitarist saved = this.repo.save(guitarist);
 		return this.mapToDTO(saved);
 	}
 	
@@ -52,13 +53,13 @@ public class GuitaristService {
 	}
 	
 	// Update
-	public GuitaristDTO update(GuitaristDTO guitaristDTO, Long id) {
+	public GuitaristDTO update(Guitarist guitarist, Long id) {
 		// Requires both since update uses put - a combintaion of create and delete
 		Guitarist toUpdate = this.repo.findById(id).orElseThrow(GuitaristNotFoundException::new);
-		toUpdate.setName(guitaristDTO.getName());
-		toUpdate.setNoOfStrings(guitaristDTO.getNoOfStrings());
-		toUpdate.setType(guitaristDTO.getType());
-		return this.mapToDTO(this.repo.save(toUpdate));
+		toUpdate.setName(guitarist.getName());
+		toUpdate.setNoOfStrings(guitarist.getNoOfStrings());
+		toUpdate.setType(guitarist.getType());
+		return this.mapToDTO(this.repo.save(guitarist));
 	}
 	
 	// Delete

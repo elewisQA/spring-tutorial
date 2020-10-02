@@ -1,5 +1,6 @@
 package com.qa.springStarter.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +18,13 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class BandDTO {
 	
-	private long id;
+	private Long id;
 	private String bandName;
 	private List<GuitaristDTO> guitarists;
+	
+	public BandDTO(Long id, String bandName) {
+		this.id = id;
+		this.bandName = bandName;
+		guitarists = new ArrayList<>();
+	}
 }

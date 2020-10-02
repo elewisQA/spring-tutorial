@@ -46,5 +46,10 @@ public class Guitarist {
 	@ManyToOne
 	private Band band;
 	
-	// ctrl + alt + s --> constructor with fields
+	public Guitarist(String name, Integer noOfStrings, String type) {
+		super();
+		this.name = name;
+		this.noOfStrings = noOfStrings;
+		this.type = type;
+	}
 }
