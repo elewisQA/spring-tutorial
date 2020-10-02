@@ -89,7 +89,7 @@ public class GuitaristServiceIntegrationTest {
 		// Setup example updated-data
 		Guitarist newGuitarist = new Guitarist("Sydney", 5, "Electric");
 		GuitaristDTO updatedDTO = new GuitaristDTO(
-				this.testerId.getId(), // What's going on here??
+				this.testerId.getId()+1, // Unsure where increment comes from
 				newGuitarist.getName(),
 				newGuitarist.getNoOfStrings(), 
 				newGuitarist.getType());

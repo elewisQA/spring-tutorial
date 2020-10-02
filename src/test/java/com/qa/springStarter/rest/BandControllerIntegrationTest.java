@@ -46,6 +46,7 @@ public class BandControllerIntegrationTest {
 	
 	// Testing Variables
 	private Long id;
+	private List<GuitaristDTO> guitarists;
 	private Band tester;
 	private Band testerId;
 	private BandDTO dto;
@@ -57,6 +58,7 @@ public class BandControllerIntegrationTest {
 		this.testerId = this.repo.save(this.tester);
 		this.dto = this.mapToDTO(testerId);
 		this.id = this.testerId.getId();
+		this.guitarists = new ArrayList<>();
 	}
 	
 	@Test
@@ -99,7 +101,8 @@ public class BandControllerIntegrationTest {
 	@Test
 	void testUpdate()  throws Exception {
 		// Initialise list of Guitarists for use
-		BandDTO newDTO = new BandDTO(this.id, "Pink Floyd");
+		
+		BandDTO newDTO = new BandDTO(this.id, "Pink Floyd", this.guitarists);
 		Band updatedBand = new Band(
 				newDTO.getBandName());
 		updatedBand.setId(this.id);

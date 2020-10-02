@@ -3,6 +3,8 @@ package com.qa.springStarter.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.FetchType;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,15 +18,11 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
+//@ElementCollection(fetch = FetchType.LAZY)
 public class BandDTO {
 	
 	private Long id;
 	private String bandName;
-	private List<GuitaristDTO> guitarists;
+	private List<GuitaristDTO> guitarists = new ArrayList<>();
 	
-	public BandDTO(Long id, String bandName) {
-		this.id = id;
-		this.bandName = bandName;
-		guitarists = new ArrayList<>();
-	}
 }

@@ -56,6 +56,7 @@ public class GuitaristService {
 	public GuitaristDTO update(Guitarist guitarist, Long id) {
 		// Requires both since update uses put - a combintaion of create and delete
 		Guitarist toUpdate = this.repo.findById(id).orElseThrow(GuitaristNotFoundException::new);
+		toUpdate.setId(guitarist.getId());
 		toUpdate.setName(guitarist.getName());
 		toUpdate.setNoOfStrings(guitarist.getNoOfStrings());
 		toUpdate.setType(guitarist.getType());
